@@ -1,8 +1,15 @@
+PREREQUISITES:
+
+NodeJS, npm, Android and IOS environment
+
+
 SETUP:
 
 1)  git clone https://github.com/nikolal/react-native-redux-boilerplate.git
 
-2) yarn      or      npm install
+2) cd react-native-redux-boilerplate
+
+3) yarn      or      npm install
 
 3)  react-native run-ios       or      react-native run-android
 
