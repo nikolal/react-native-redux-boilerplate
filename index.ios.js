@@ -1,1 +1,1 @@
-require('./src/index.common')
+require('./src/App.js')

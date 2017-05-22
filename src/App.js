@@ -1,15 +1,13 @@
 
 import React from 'react'
 import { Provider } from 'react-redux'
-import { AppRegistry, View } from 'react-native'
-import { Actions } from 'react-native-router-flux'
-
-import Routes from './components/routes/Routes'
+import { AppRegistry } from 'react-native'
+import Navigator from './components/navigator/Navigator'
 import store from './store'
 
 const App = () => (
   <Provider store={store}>
-    <Routes />
+    <Navigator />
   </Provider>
 )
 

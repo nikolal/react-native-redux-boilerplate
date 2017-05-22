@@ -13,7 +13,12 @@ class Home extends Component {
     title: 'Home',
   }
 
-  updateText = text => updateHomeTextAction(text)
+  static propTypes = {
+    homeText: PropTypes.string.isRequired,
+    updateHomeTextAction: PropTypes.func.isRequired,
+  }
+
+  updateText = text => this.props.updateHomeTextAction(text)
 
   render(){
     const { navigation, homeText, updateHomeTextAction } = this.props
@@ -32,11 +37,6 @@ class Home extends Component {
       </View>
     )
   }
-}
-
-Home.propTypes = {
-  homeText: PropTypes.string.isRequired,
-  updateHomeTextAction: PropTypes.func.isRequired,
 }
 
 const stateToProps = (state) => ({
