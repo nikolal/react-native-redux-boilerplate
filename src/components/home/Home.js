@@ -20,7 +20,6 @@ class Home extends Component {
 
     return(
       <View style={style.container}>
-        <Text>Hello World</Text>
         <BlueButton
           onPress={() => navigation.navigate('About')}
           text="Go to About"
