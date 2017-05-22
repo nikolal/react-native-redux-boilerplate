@@ -1,6 +1,5 @@
-import React, { PropTypes } from 'react'
+import React, { PropTypes, Component } from 'react'
 import { View, Text, StyleSheet } from 'react-native'
-import { Actions as navigationActions } from 'react-native-router-flux'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { updateHomeTextAction } from './homeActions.js'
@@ -8,26 +7,32 @@ import { metrics, colors } from '../../themes'
 import BlueButton from '../common/BlueButton.js'
 
 
-const Home = ({ homeText, updateHomeTextAction }) => {
+class Home extends Component {
 
-  const goToAbout = () => navigationActions.about()
+  static navigationOptions = {
+    title: 'Home',
+  }
 
-  const updateText = text => updateHomeTextAction(text)
+  updateText = text => updateHomeTextAction(text)
 
-  return(
-    <View style={style.container}>
-      <Text>Hello World</Text>
-      <BlueButton
-        onPress={goToAbout}
-        text="Go to About"
-      />
-      <Text>{homeText}</Text>
-      <BlueButton
-        onPress={() => updateText('Updated text')}
-        text="Update redux state"
-      />
-    </View>
-  )
+  render(){
+    const { navigation, homeText, updateHomeTextAction } = this.props
+
+    return(
+      <View style={style.container}>
+        <Text>Hello World</Text>
+        <BlueButton
+          onPress={() => navigation.navigate('About')}
+          text="Go to About"
+        />
+        <Text>{homeText}</Text>
+        <BlueButton
+          onPress={() => this.updateText('Updated text')}
+          text="Update redux state"
+        />
+      </View>
+    )
+  }
 }
 
 Home.propTypes = {

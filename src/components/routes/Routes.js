@@ -1,25 +1,32 @@
-import React, { PropTypes } from 'react';
-import { Scene, Router } from 'react-native-router-flux';
-import { connect } from 'react-redux';
+// import React, { PropTypes } from 'react';
+// import { Scene, Router } from 'react-native-router-flux';
+// import { connect } from 'react-redux';
 
 import Home from '../home/Home.js';
 import About from '../about/About.js'
 
-const Routes = () => (
-  <Router>
-    <Scene key="root">
-      <Scene
-        key="home"
-        title="Home"
-        component={Home}
-      />
-      <Scene
-        key="about"
-        title="About"
-        component={About}
-      />
-    </Scene>
-  </Router>
-)
+import { StackNavigator } from 'react-navigation';
 
-export default Routes;
+const Router = StackNavigator({
+  Home: { screen: Home },
+  About: { screen: About },
+});
+
+// const Routes = () => (
+//   <Router>
+//     <Scene key="root">
+//       <Scene
+//         key="home"
+//         title="Home"
+//         component={Home}
+//       />
+//       <Scene
+//         key="about"
+//         title="About"
+//         component={About}
+//       />
+//     </Scene>
+//   </Router>
+// )
+//
+export default Router;
