@@ -1,11 +1,11 @@
-import React, { PropTypes, Component } from 'react'
+import React, { Component, PropTypes } from 'react'
 import { View, Text, StyleSheet } from 'react-native'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { updateHomeTextAction } from './homeActions.js'
 import { metrics, colors } from '../../themes'
 import BlueButton from '../common/BlueButton.js'
-
+import { api, testApi } from '../../../config/api.js'
 
 class Home extends Component {
 
@@ -16,6 +16,12 @@ class Home extends Component {
   static propTypes = {
     homeText: PropTypes.string.isRequired,
     updateHomeTextAction: PropTypes.func.isRequired,
+  }
+
+  componentDidMount = () => {
+    fetch(`${testApi}/locations`)
+      .then(res => res.json())
+      .then(loactions => console.log(loactions))
   }
 
   updateText = text => this.props.updateHomeTextAction(text)
