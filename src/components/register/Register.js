@@ -34,7 +34,7 @@ class Register extends Component {
         }),
       })
       .then((response) => response.json())
-      .then(response => console.log(response)) 
+      .then(response => console.log(response))
     } catch (err) {
       alert(err);
       response = null;
@@ -62,7 +62,7 @@ class Register extends Component {
         />
         <Button
           title="Register"
-          onPress={() => this.register(username, password, `${authApi}`)}
+          onPress={() => this.register(username, password, `${authApi}/register`)}
         />
       </View>
     )
